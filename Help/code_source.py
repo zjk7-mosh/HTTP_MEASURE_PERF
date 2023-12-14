@@ -43,13 +43,15 @@ def calculate_percentiles(latencies, percentiles):
         results.append(sorted_latencies[index])
     return results
 
+def calculate_kl_divergence(): #IMPLEMENT calculate_kl_divergence()
+	# WRITE YOUR CODE HERE
+
 if latencies:
     average_latency = sum(latencies) / len(latencies)
     percentiles = calculate_percentiles(latencies, [25, 50, 75, 95, 99])
-
+	kl_divergence = calculate_kl_divergence() #modify this call to calculate_kl_divergence() if necesary
     print(f"AVERAGE LATENCY: {average_latency:.5f}")
     print(f"PERCENTILES: {', '.join(f'{p:.5f}' for p in percentiles)}")
+	print(f"KL DIVERGENCE: {kl_divergence:.5f}")
 else:
     print("No HTTP request-response pairs found.")
-
-

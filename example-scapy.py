@@ -13,7 +13,7 @@ import math
 load_layer("http")
 
 # name of the pcap file to load 
-pcap_filename = "pcap1.pcap"
+pcap_filename = "pcap2.pcap"
 
 # example counters 
 number_of_packets_total = 0  
@@ -25,10 +25,10 @@ sessions = processed_file.sessions()    #  get the list of sessions
 for session in sessions:                   
     for packet in sessions[session]:    # for each packet in each session
         number_of_packets_total = number_of_packets_total + 1  #increment total packet count 
-        if packet.haslayer(TCP):        # check is the packet is a TCP packet
+        if packet.haslayer(TCP):        # check if the packet is a TCP packet
             number_of_tcp_packets = number_of_tcp_packets + 1   # count TCP packets 
             source_ip = packet[IP].src   # note that a packet is represented as a python hash table with keys corresponding to 
-            dest_ip = packet[IP].dst     # layer field names and the values of the hash table as the packet field values
+            dest_ip = packet[IP].dst     #  layer field names and the values of the hash table as the packet field values.
             
             if (packet.haslayer(HTTP)):  # test for an HTTP packet 
                 if HTTPRequest in packet:   
